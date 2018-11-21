@@ -1,0 +1,23 @@
+﻿@model studentCourseProj.Models.Course
+@{
+    ViewBag.Title = "AddCourse";
+}
+
+<h2>Add Course</h2>
+
+<div class="container" style="width:40%;margin-top:2%">
+
+    @using (Html.BeginForm("SaveCourse", "Course", FormMethod.Post))
+    {
+
+        @Html.TextBoxFor(model => model.CourseName, new { @class = "form-control", @placeholder = "Course Name" })
+
+        @Html.TextBoxFor(model => model.StartDate, new { @class = "form-control", @placeholder = "Start Date" })
+
+        @Html.TextBoxFor(model => model.EndDate, new { @class = "form-control", @placeholder = "End Date" })
+
+        <input type="submit" value="Submit" class="btn btn-block btn-primary" />
+
+    }
+
+</div>

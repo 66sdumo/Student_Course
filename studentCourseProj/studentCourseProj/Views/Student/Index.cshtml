@@ -1,0 +1,41 @@
+﻿@model studentCourseProj.Models.Student
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Add Student</h2>
+
+<div class="container" style="width:40%;margin-top:2%">
+
+    @using (Html.BeginForm("SaveStudent", "Student", FormMethod.Post))
+    {
+       
+
+        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+
+        @Html.TextBoxFor(model => model.Surname, new { @class = "form-control", @placeholder = "Surname" })
+
+        @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", @placeholder = "Email" })
+
+        @Html.TextBoxFor(model => model.IDNumber, new { @class = "form-control", @placeholder = "Id Number" })
+
+        <input type="submit" value="Submit" class="btn btn-block btn-primary" />
+
+    }
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

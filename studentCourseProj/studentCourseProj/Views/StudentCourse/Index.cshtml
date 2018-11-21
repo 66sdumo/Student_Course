@@ -1,0 +1,64 @@
+﻿@model IEnumerable <studentCourseProj.Models.RegisterModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Student Course</h2>
+
+
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                First Name
+            </th>
+
+            <th>
+                Surname
+            </th>
+
+            <th>
+                Course Name
+            </th>
+
+            <th>
+                Start Date
+            </th>
+
+            <th>
+                End Date
+            </th>
+
+
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.FirstName
+            </td>
+
+            <td>
+                @item.Surname
+            </td>
+
+            <td>
+                @item.CourseName
+            </td>
+
+            <td>
+                @item.StartDate
+            </td>
+
+            <td>
+                @item.EndDate
+            </td>
+
+        </tr>
+        }
+
+    </table>
+}
