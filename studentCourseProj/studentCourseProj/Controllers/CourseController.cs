@@ -12,7 +12,6 @@ namespace studentCourseProj.Controllers
 
         private ProjDbContext courseContext = new ProjDbContext();
 
-
         // GET: Course
         public ActionResult Index()
         {
