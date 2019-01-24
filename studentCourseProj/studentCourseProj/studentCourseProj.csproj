@@ -190,8 +190,10 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegisteredController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\StudentCourseController.cs" />
+    <Compile Include="Controllers\TableController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -200,6 +202,7 @@
     <Compile Include="Models\MultipleModel.cs" />
     <Compile Include="Models\MyView.cs" />
     <Compile Include="Models\ProjDbContext.cs" />
+    <Compile Include="Models\Registered.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentContext.cs" />
@@ -264,9 +267,11 @@
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Course\Index.cshtml" />
     <Content Include="Views\StudentCourse\Index.cshtml" />
+    <Content Include="Views\Registered\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Table\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

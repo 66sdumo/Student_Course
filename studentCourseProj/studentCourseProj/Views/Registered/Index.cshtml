@@ -1,0 +1,31 @@
+﻿@model IEnumerable<studentCourseProj.Models.MultipleModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered table-responsive table-hover">
+        <tr>
+
+            <th>First Name </th>
+            <th>Last Name </th>
+            <th>CourseName</th>
+            <th>StartDate</th>
+            <th>EndDate</th>
+
+        </tr>
+        @foreach (var d in Model )
+        {
+            <tr>
+
+                <td>@d.FirstName</td>
+                <td>@d.Surname</td>
+                <td>@d.CourseName</td>
+                <td>@d.StartDate</td>
+                <td>@d.EndDate</td>
+
+
+            </tr>
+        }
+    </table>  

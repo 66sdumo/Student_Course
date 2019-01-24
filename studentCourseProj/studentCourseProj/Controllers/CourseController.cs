@@ -1,6 +1,7 @@
 ﻿using studentCourseProj.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,26 +20,34 @@ namespace studentCourseProj.Controllers
         }
 
         [HttpPost]
-
+        [Route("api/SaveCourse")]
         public ActionResult SaveCourse(Course model)
         {
-            
+
             try
             {
 
-                List<Course> list = courseContext.Courses.ToList();
+                DateTime startDate = Convert.ToDateTime(model.StartDate);
+                DateTime endDate = Convert.ToDateTime(model.EndDate);
+                if (startDate < endDate)
+                {
+                    List<Course> list = courseContext.Courses.ToList();
 
-                //ViewBag.DList = new SelectList(list, "DepartmentId", "DepartmentName");
+                    Course course = new Course();
+                    course.CourseName = model.CourseName;
+                    course.StartDate = model.StartDate;
+                    course.EndDate = model.EndDate;
 
-                Course course = new Course();
-                course.CourseName = model.CourseName;
-                course.StartDate = model.StartDate;
-                course.EndDate = model.EndDate;
+                    courseContext.Courses.Add(course);
+                    courseContext.SaveChanges();
 
-                courseContext.Courses.Add(course);
-                courseContext.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
 
             }
 
@@ -46,7 +55,7 @@ namespace studentCourseProj.Controllers
             {
                 throw ex;
             }
-            
+
 
 
         }

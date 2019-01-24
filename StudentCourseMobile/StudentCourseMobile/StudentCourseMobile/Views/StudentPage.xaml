@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentCourseMobile.Views.StudentPage">
+    <ContentPage.Content>
+        <StackLayout>
+            
+            
+            <Image Source="Poster_AddStudent.png"></Image>
+          
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
+
+                    <Entry Placeholder="First Name" Text="{Binding FirstName}" x:Name="FirstName" HeightRequest="50" WidthRequest="300"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
+
+                    <Entry Placeholder="Last name" Text="{Binding Surname}" x:Name="Surname" HeightRequest="50" WidthRequest="300"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
+
+                    <Entry Placeholder="Email" Text="{Binding EmailAddress}" x:Name="EmailAddress" HeightRequest="50" WidthRequest="300"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
+
+                    <Entry Placeholder="ID Number" Text="{Binding IDNumber}" x:Name="IDNumber" HeightRequest="50" WidthRequest="300"/>
+                </StackLayout>
+            </StackLayout>
+
+            <ActivityIndicator
+                x:Name="activityIndicator"
+                IsEnabled="true"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="true"
+                Color="#007bff"
+            />
+
+            <Button
+              
+                HorizontalOptions="Fill"
+                BorderRadius="5"
+                BackgroundColor="#007bff"
+                Text="Add"
+                TextColor="White"
+                Clicked="PostStudent"
+            />
+
+            <Button
+              
+                HorizontalOptions="Fill"
+                BorderRadius="5"
+                BackgroundColor="#007bff"
+                Text="Back"
+                TextColor="White"
+                Clicked="HomePage"
+            />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

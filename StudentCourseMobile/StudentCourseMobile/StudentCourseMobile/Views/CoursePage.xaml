@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentCourseMobile.Views.CoursePage">
+    <ContentPage.Content>
+    
+        <StackLayout>
+            
+            <Image Source="large.jpg"></Image>
+            
+            
+            <Label
+             Text="Add Course"
+             TextColor="#001833"
+             FontSize="Large"
+             FontAttributes="Italic"
+             HorizontalTextAlignment="Center"
+            />
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
+
+                    <Entry Placeholder="Course Name" HorizontalOptions="FillAndExpand" Text="{Binding CourseName}" x:Name="CourseName" HeightRequest="50" WidthRequest="300"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
+
+                    <Entry Placeholder="Start Date" Text="{Binding StartDate}" x:Name="StartDate" HeightRequest="50" WidthRequest="300"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
+
+                    <Entry Placeholder="End Date" Text="{Binding EndDate}" x:Name="EndDate" HeightRequest="50" WidthRequest="300"/>
+                </StackLayout>
+            </StackLayout>
+
+            <ActivityIndicator
+                x:Name="activityIndicator"
+                IsEnabled="true"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="true"
+                Color="#007bff"
+            />
+
+            <Button
+              
+                HorizontalOptions="Fill"
+                BorderRadius="5"
+                BackgroundColor="#007bff"
+                Text="Add"
+                TextColor="White"
+                Clicked="PostCourse"
+            />
+
+            <Button
+              
+                HorizontalOptions="Fill"
+                BorderRadius="5"
+                BackgroundColor="#007bff"
+                Text="Back"
+                TextColor="White"
+                Clicked="HomePage"
+            />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

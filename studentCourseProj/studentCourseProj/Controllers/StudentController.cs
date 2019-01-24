@@ -12,42 +12,8 @@ namespace studentCourseProj.Controllers
         private ProjDbContext studentContext = new ProjDbContext();
 
 
-        // GET: Student
-        /*(public ActionResult Index(int id)
-        {
-            StudentContext studentContext = new StudentContext();
-            Student student = studentContext.Students.Single(stud => stud.StudentId == id);
-            return View(student);
-        }*/
 
 
-
-
-        /*public ActionResult Index()
-        {
-            ViewBag.list = studentContext.Students.ToList();
-
-            return View(ViewBag.list);
-        }*/
-
-
-
-
-
-
-
-        
-           /* public ActionResult Index(int id)
-            {
-                ViewBag.stud = new List<Student>()
-                {
-
-                    studentContext.Students.ToList(stud => stud.StudentId == id)
-
-                };
-                return View();
-            }*/
-            
         public ActionResult Index()
         {
             List<Student> list = studentContext.Students.ToList();
@@ -56,12 +22,13 @@ namespace studentCourseProj.Controllers
         }
 
 
-       
 
-   
+
+
 
 
         [HttpPost]
+        [Route("api/SaveStudent")]
         public ActionResult SaveStudent(Student model)
         {
             try
@@ -69,7 +36,7 @@ namespace studentCourseProj.Controllers
 
                 List<Student> list = studentContext.Students.ToList();
 
-              //  List<Department> list = db.Departments.ToList();
+                //  List<Department> list = db.Departments.ToList();
 
                 ViewBag.StudentList = new SelectList(list, "StudentId", "FirstName");
 
@@ -81,7 +48,7 @@ namespace studentCourseProj.Controllers
                 stud.IDNumber = model.IDNumber;
                 studentContext.Students.Add(stud);
                 studentContext.SaveChanges();
-              
+
                 return RedirectToAction("Index");
 
             }
@@ -91,5 +58,44 @@ namespace studentCourseProj.Controllers
                 throw ex;
             }
         }
+
+
     }
 }
+
+
+// GET: Student
+/*(public ActionResult Index(int id)
+{
+    StudentContext studentContext = new StudentContext();
+    Student student = studentContext.Students.Single(stud => stud.StudentId == id);
+    return View(student);
+}*/
+
+
+
+
+/*public ActionResult Index()
+{
+    ViewBag.list = studentContext.Students.ToList();
+
+    return View(ViewBag.list);
+}*/
+
+
+
+
+
+
+
+
+/* public ActionResult Index(int id)
+ {
+     ViewBag.stud = new List<Student>()
+     {
+
+         studentContext.Students.ToList(stud => stud.StudentId == id)
+
+     };
+     return View();
+ }*/

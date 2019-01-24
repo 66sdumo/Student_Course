@@ -1,6 +1,8 @@
-﻿using studentCourseProj.Models;
+﻿using Newtonsoft.Json;
+using studentCourseProj.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,7 +15,8 @@ namespace studentCourseProj.Controllers
         private ProjDbContext homeContext = new ProjDbContext();
 
 
-        int count = 0;
+        int StudentCount = 0;
+        int CourseCount = 0;
 
 
         public ActionResult Index()
@@ -28,17 +31,57 @@ namespace studentCourseProj.Controllers
 
             MultipleModel multiModel = new MultipleModel();
 
+
             multiModel.students = Studlist;
             multiModel.courses = Crselist;
+
+
 
             return View(multiModel);
 
         }
 
-        [HttpPost]
-        public ActionResult postSelected(MultipleModel model)
+
+
+        [HttpGet]
+        [Route("api/GetStudent")]
+        public string GetStudent()
         {
 
+            using (ProjDbContext db = new ProjDbContext())
+            {
+
+                var list = db.Students.ToList();
+
+                string StudLstJson = JsonConvert.SerializeObject(list);
+
+                return StudLstJson;
+
+            }
+        }
+
+        [HttpGet]
+        [Route("api/GetCourse")]
+        public string GetCourse()
+        {
+
+
+            using (ProjDbContext db = new ProjDbContext())
+            {
+
+                var list = db.Courses.ToList();
+
+                string CourseLstJson = JsonConvert.SerializeObject(list);
+
+                return CourseLstJson;
+
+            }
+        }
+
+        [HttpPost]
+        [Route("api/postSelected")]
+        public string postSelected(MultipleModel model)
+        {
             List<StudentCourse> StudCount = homeContext.StudentCourses.ToList();
 
 
@@ -48,16 +91,22 @@ namespace studentCourseProj.Controllers
             {
                 if (model.StudentId == StudCount[i].StudentId)
                 {
+
+                    StudentCount++;
+
+
                     if (model.CourseId == StudCount[i].CourseId && i < length)
                     {
-                        count++;
+                        CourseCount++;
                     }
 
                 }
+
+
             }
             try
             {
-                if (count < 3)
+                if (StudentCount < 3 && CourseCount == 0)
                 {
                     int SelectedStud = model.StudentId;
 
@@ -71,16 +120,83 @@ namespace studentCourseProj.Controllers
                     homeContext.StudentCourses.Add(StudC);
                     homeContext.SaveChanges();
 
-                    return RedirectToAction("Index");
+
+                    return "Successfull";
 
                 }
+
             }
             catch (Exception ex)
             {
                 throw (ex);
             }
-            return RedirectToAction("Index");
+
+            return "Successfull";
         }
+
+
+        //Second way to get value from dropdown
+        //string selectedCourse = model.CourseId.ToString();
+        //Debug.WriteLine(selectedCourse + " ===================================================");
+
+
+        //string selectedStudent = model.StudentId.ToString();
+        //Debug.WriteLine(selectedStudent + " ===================================================");
+
+
+
+        //last user story to be continued
+
+
+        //public IList<User> GetUsers()
+        //{
+
+        //    using (var userContext = new UserConn())
+        //    {
+        //        var data = userContext.Users.SqlQuery("[dbo].[allCustomers]").ToList();
+
+        //        return data;
+        //    }
+        //    return db.Users;
+        //}
+
+
+        //[HttpGet]
+        //public ActionResult SaveStudent(MultipleModel model)
+        //{
+
+        //    using (var contxt = new ProjDbContext())
+        //    {
+        //        var data = contxt.
+        //    }
+        //    try
+        //    {
+
+        //        List<Student> list = studentContext.Students.ToList();
+
+        //        List<Department> list = db.Departments.ToList();
+
+        //        ViewBag.StudentList = new SelectList(list, "StudentId", "FirstName");
+
+
+        //        Student stud = new Student();
+        //        stud.FirstName = model.FirstName;
+        //        stud.Surname = model.Surname;
+        //        stud.EmailAddress = model.EmailAddress;
+        //        stud.IDNumber = model.IDNumber;
+        //        studentContext.Students.Add(stud);
+        //        studentContext.SaveChanges();
+
+        //        return RedirectToAction("Index");
+
+        //    }
+
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
+
 
 
     }
@@ -91,5 +207,5 @@ namespace studentCourseProj.Controllers
 
 
 
-                
+
 

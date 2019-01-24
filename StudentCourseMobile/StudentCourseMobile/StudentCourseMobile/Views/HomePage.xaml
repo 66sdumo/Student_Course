@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentCourseMobile.Views.HomePage">
+    <ContentPage.Content>
+        <StackLayout>
+         
+            <Label
+              Text="St. Claude's University"
+              TextColor="#001833"
+              FontSize="Large"
+              FontAttributes="Italic"
+              HorizontalTextAlignment="Center"
+            />
+
+            <Image Source="University.jpeg"></Image>
+
+            <ActivityIndicator
+                x:Name="activityIndicator"
+                IsEnabled="true"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="true"
+                Color="#007bff"
+            />
+
+
+            <Picker x:Name="IndustryTypePicker1"  HorizontalOptions="FillAndExpand" Title="Select Student" SelectedIndexChanged="IndustryTypePicker1_SelectedIndexChanged">
+              
+            </Picker>
+
+            <Picker x:Name="IndustryTypePicker2"  HorizontalOptions="FillAndExpand" Title="Select Course" SelectedIndexChanged="IndustryTypePicker2_SelectedIndexChanged">
+              
+            </Picker>
+
+
+
+
+            <Button
+              
+                HorizontalOptions="Fill"
+                BorderRadius="5"
+                BackgroundColor="#007bff"
+                Text="Submit"
+                TextColor="White"
+                Clicked="Register"
+                
+            />
+
+            <StackLayout Orientation="Horizontal">
+               
+                <Button       
+                  HorizontalOptions="FillAndExpand"
+                  BorderRadius="5"
+                  BackgroundColor="#007bff"
+                  Text="Add Student"
+                  TextColor="White"
+                  Clicked="StudentPage"
+                />
+
+
+
+                <Button       
+                  HorizontalOptions="FillAndExpand"
+                  BorderRadius="5"
+                  BackgroundColor="#007bff"
+                  Text="Add Course"
+                  TextColor="White"
+                  Clicked="CoursePage"    
+                />
+                
+            </StackLayout>
+                       
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage> 
