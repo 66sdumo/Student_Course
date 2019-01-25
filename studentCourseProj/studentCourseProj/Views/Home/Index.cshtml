@@ -6,97 +6,114 @@
         width: 300px;
         padding: 5px;
         margin: 15px;
+        color: black;
+        border-radius: 4px;
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        font-size: 110%;
+        background-color: #4c82af;
     }
+
+    .jumbotron {
+        background-image: url(../../Content/Images/large.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0% 25%;
+        color: white;
+        text-shadow: black 0.3em 0.3em 0.3em;
+    }
+
 </style>
+
+
 
 
 <div class="jumbotron">
     <h1>Student Courses</h1>
-    <p class="lead">Scroll the dropdowns and choose</p>
+    <p class="lead"></p>
+
+
     <div class="row">
-        <p><a href="http://localhost:53976/Student/Index" class="btn btn-primary btn-lg">Add Student &raquo;</a></p>
-        <p><a href="http://localhost:53976/Course/Index" class="btn btn-primary btn-lg">Add Course &raquo;</a></p>
+
+        <div class="col-md-4">
+            <p><a href="http://localhost:53976/Student/Index" class="btn btn-primary btn-lg">Add Student &raquo;</a></p>
+        </div>
+
+        <div class="col-md-4">
+            <p><a href="http://localhost:53976/Course/Index" class="btn btn-primary btn-lg">Add Course &raquo;</a></p>
+        </div>
+
+        <div class="col-md-4">
+            <p><a href="http://localhost:53976/registered/index" class="btn btn-primary btn-lg">View Registered &raquo;</a></p>
+        </div>
+
     </div>
 </div>
-@*<div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
 
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
+<h2>Scroll the dropdowns and choose</h2>
+<hr/>
 
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
 
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-        </div>
-    </div>*@
-
-<div style="width:80%">
+<div style="width:100%">
 
     @using (Html.BeginForm("postSelected", "Home", FormMethod.Post))
     {
-        <div class="row">
-            <div class="col-md-6">
+    <div class="row">
+
+
+        <div class="col-md-4">
+            <div class="form-group">
                 <h2>Student</h2>
-                <div class="col-lg-6">
 
-                    @Html.DropDownListFor(model => model.StudentId, ViewBag.StudentList as SelectList, "--Select Student --", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.StudentId, ViewBag.StudentList as SelectList, "--Select Student --", new { @class = "form-control" })
 
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <h2>Course</h2>
-                <div class="col-lg-6">
-
-                    @Html.DropDownListFor(model => model.CourseId, ViewBag.CourseList as SelectList, "--Select Course--", new { @class = "form-control" })
-
-
-                </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="col-lg-6">
-
-                    <input type="submit" value="submit" class="Submit" />
-
-                </div>
+        <div class="col-md-4">
+            <div class="form-group">
+            
+            
             </div>
         </div>
 
-    }
+        <div class="col-md-4">
+            <div class="form-group">
+                 <h2>Course</h2>
 
-</div>
+                  @Html.DropDownListFor(model => model.CourseId, ViewBag.CourseList as SelectList, "--Select Course--", new { @class = "form-control" })
 
+           </div>
+        </div>
 
-@*<table class="table table-bordered table-responsive table-hover">
-    <tr>
+     </div>
 
-        <th>First Name </th>
-        <th>Last Name </th>
-        <th>CourseName</th>
-        <th>StartDate</th>
-        <th>EndDate</th>
-
-    </tr>
-    @foreach (var d in Model)
-    {
-        <tr>
-
-            <td>@d.FirstName</td>
-            <td>@d.Surname</td>
-            <td>@d.CourseName</td>
-            <td>@d.StartDate</td>
-            <td>@d.EndDate</td>
+            <div class="row">
+                <div class="col-md-4">
 
 
-        </tr>
-    }
-</table>*@  
+                    @*<input type="submit" value="submit" class="Submit" style="width : 100% " />*@
+
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <input type="submit" value="Submit" class="Submit" />
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+
+
+                    @*<input type="submit" value="submit" class="Submit" style="width : 100% " />*@
+
+
+                </div>
+            </div>
+
+            }
+
+        </div>
+
+
+      

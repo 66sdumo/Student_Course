@@ -215,6 +215,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\large.jpg" />
+    <Content Include="Content\Images\Poster_AddStudent.png" />
+    <Content Include="Content\Images\stud.jpg" />
+    <Content Include="Content\Images\Un.jpg" />
+    <Content Include="Content\Images\University.jpeg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

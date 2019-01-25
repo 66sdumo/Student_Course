@@ -4,25 +4,50 @@
     ViewBag.Title = "Index";
 }
 
+<style type="text/css">
 
-<h2>Add Student</h2>
+    .jumbotron {
+        background-image: url(../../Content/Images/large.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0% 25%;
+        color: whitesmoke;
+        text-shadow: black 0.3em 0.3em 0.3em;
+    }
+</style>
+
+<div class="jumbotron">
+    <h1 style="text-align:center">Add Student</h1>
+</div>
+
+
 
 <div class="container" style="width:40%;margin-top:2%">
 
+    
+
     @using (Html.BeginForm("SaveStudent", "Student", FormMethod.Post))
     {
-       
 
-        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+        <div class="form-group" style="width:50">
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @placeholder = "First Name" })
+        </div>
 
-        @Html.TextBoxFor(model => model.Surname, new { @class = "form-control", @placeholder = "Surname" })
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.Surname, new { @class = "form-control", @placeholder = "Surname" })
+        </div>
 
-        @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", @placeholder = "Email" })
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control", @placeholder = "Email" })
+        </div>
 
-        @Html.TextBoxFor(model => model.IDNumber, new { @class = "form-control", @placeholder = "Id Number" })
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.IDNumber, new { @class = "form-control", @placeholder = "Id Number" })
+        </div>
 
-        <input type="submit" value="Submit" class="btn btn-block btn-primary" />
-
+        <div class="form-group">
+            <input type="submit" value="Submit" class="btn btn-block btn-primary" />
+        </div>
     }
 
 </div>

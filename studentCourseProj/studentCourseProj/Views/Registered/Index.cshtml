@@ -3,16 +3,64 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<table class="table table-bordered table-responsive table-hover">
+<style type="text/css">
+    #registered {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #registered td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+    #registered tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #registered tr:hover {
+        background-color: #ddd;
+    }
+
+        #registered th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4c82af;
+            color: white;
+        }
+
+
+    .jumbotron {
+        background-image: url(../../Content//Images//large.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 0% 25%;
+        color: white;
+        text-shadow: black 0.3em 0.3em 0.3em;
+    }
+
+
+    .h2 {
+        font-family: 'Indie Flower', sans-serif;
+        font-style: italic;
+        font-weight: 400;
+    }
+</style>
+
+<div class="jumbotron">
+    <h1 style="text-align : center">Registered</h1>
+</div>
+<table class="table table-bordered table-responsive table-hover" id="registered">
         <tr>
 
             <th>First Name </th>
             <th>Last Name </th>
-            <th>CourseName</th>
-            <th>StartDate</th>
-            <th>EndDate</th>
+            <th>Course Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
 
         </tr>
         @foreach (var d in Model )
